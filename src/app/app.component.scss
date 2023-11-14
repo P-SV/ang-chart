@@ -1,0 +1,12 @@
+.content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  .chart {
+    margin-bottom: 3rem;
+  }
+}
+
+.combined {
+  width: 100%;
+}

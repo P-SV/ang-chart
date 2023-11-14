@@ -1,0 +1,13 @@
+<highcharts-chart
+  [Highcharts]="highcharts"
+  [options]="chartOptions"
+  [(update)]="updated"
+  style="width: 100%"
+>
+</highcharts-chart>
+<div class="buttons">
+  <button mat-raised-button (click)="changeColor()">Change color</button>
+  <button mat-raised-button color="primary" (click)="updateType()">
+    Change to {{ chartTypes[chartType] }}
+  </button>
+</div>

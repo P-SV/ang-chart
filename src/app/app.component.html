@@ -1,0 +1,26 @@
+<main *ngIf="chartsSeries | async as chSeries">
+  <mat-form-field>
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [formGroup]="dateRange" [rangePicker]="picker">
+      <input matStartDate formControlName="start" placeholder="Start date" />
+      <input matEndDate formControlName="end" placeholder="End date" />
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+  <div class="content">
+    <div class="chart" *ngFor="let series of chSeries">
+      <app-chart [options]="chartOptions" [series]="series" />
+    </div>
+  </div>
+  <div class="content">
+    <app-chart
+      class="chart"
+      [title]="'Combined'"
+      [options]="chartOptions"
+      [series]="chSeries.flat()"
+    />
+  </div>
+</main>
+
+<router-outlet></router-outlet>
